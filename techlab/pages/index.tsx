@@ -19,7 +19,7 @@ import { featuredProducts } from "@/data/products"
           <h1 className="text-5xl md:text-7xl font-light tracking-wider mb-16">
            PREMIUM
           <br />
-           TECHNOLOGY
+           TECH RESELLER
           </h1>
           <p className="text-lg font-light mb-10 max-w-2xl mx-auto">
            Discover the latest in premium technology. A carefully curated collection of Apple devices and cutting-edge
