@@ -1,41 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import Header from "@/components/common/header"
-import Footer from "@/components/common/footer"
+import { featuredProducts } from "@/data/products"
 
-const featuredProducts = [
-  {
-    id: 1,
-    name: "MacBook Pro 16-inch M4",
-    price: 56999,
-    image: "/Pro.jpeg?height=400&width=600",
-    category: "Laptops",
-  },
-  {
-    id: 2,
-    name: "iPhone 16 Pro Max 1TB",
-    price: 36999,
-    image: "/iphone16.png?height=100&width=200",
-    category: "Phones",
-  },
-  {
-    id: 3,
-    name: "MacBook Air 16-inch M4",
-    price: 26999,
-    image: "/mac.png?height=100&width=200",
-    category: "Laptops",
-  },
-  {
-    id: 4,
-    name: "iPhone 17 Pro Max 2TB",
-    price: 52499,
-    image: "/iphone17.png?height=100&width=200",
-    category: "Phones",
-  },
-]
 
-export default function HomePage() {
+ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -96,3 +65,5 @@ export default function HomePage() {
     </div>
   )
 }
+
+export default HomePage

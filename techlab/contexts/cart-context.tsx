@@ -25,26 +25,26 @@ type CartAction =
   | { type: "CLEAR_CART" }
   | { type: "LOAD_CART"; payload: CartItem[] }
 
-const CartContext = createContext<{
-  state: CartState
-  dispatch: React.Dispatch<CartAction>
-} | null>(null)
+  const CartContext = createContext<{
+    state: CartState
+    dispatch: React.Dispatch<CartAction>
+  } | null>(null)
 
-function cartReducer(state: CartState, action: CartAction): CartState {
-  switch (action.type) {
-    case "ADD_ITEM": {
-      const existingItem = state.items.find((item) => item.id === action.payload.id)
+  function cartReducer(state: CartState, action: CartAction): CartState {
+    switch (action.type) {
+      case "ADD_ITEM": {
+        const existingItem = state.items.find((item) => item.id === action.payload.id)
 
-      if (existingItem) {
-        const updatedItems = state.items.map((item) =>
-          item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } : item,
-        )
-        return {
-          ...state,
-          items: updatedItems,
-          total: updatedItems.reduce((sum, item) => sum + item.price * item.quantity, 0),
-          itemCount: updatedItems.reduce((sum, item) => sum + item.quantity, 0),
-        }
+        if (existingItem) {
+          const updatedItems = state.items.map((item) =>
+            item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } : item,
+          )
+          return {
+           ...state,
+            items: updatedItems,
+            total: updatedItems.reduce((sum, item) => sum + item.price * item.quantity, 0),
+            itemCount: updatedItems.reduce((sum, item) => sum + item.quantity, 0),
+          }
       }
 
       const newItems = [...state.items, { ...action.payload, quantity: 1 }]

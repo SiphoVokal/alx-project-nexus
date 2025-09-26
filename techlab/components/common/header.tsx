@@ -19,14 +19,17 @@ export default function Header() {
             </Link>
             <div className="flex items-center space-x-8">
               <div className="hidden md:flex space-x-8">
-                <Link href="/products" className="text-sm font-light hover:text-gray-600 transition-colors">
+                <Link href="/products" className="text-sm text-gray-900 font-light hover:text-gray-600 transition-colors">
                   PRODUCTS
                 </Link>
-                <Link href="/laptops" className="text-sm font-light hover:text-gray-600 transition-colors">
+                <Link href="/laptops" className="text-sm font-light text-gray-900 hover:text-gray-600 transition-colors">
                   LAPTOPS
                 </Link>
-                <Link href="/phones" className="text-sm font-light hover:text-gray-600 transition-colors">
+                <Link href="/phones" className="text-sm font-light text-gray-900 hover:text-gray-600 transition-colors">
                   PHONES
+                </Link>
+                <Link href="/accessories" className="text-sm font-light text-gray-900 hover:text-gray-600 transition-colors">
+                  ACCESSORIES
                 </Link>
               </div>
               <CartIcon />
