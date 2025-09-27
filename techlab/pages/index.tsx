@@ -35,7 +35,7 @@ import { featuredProducts } from "@/data/products"
       </section>
 
       {/* Featured Products */}
-      <section className="py-20 px-4">
+      <section className="py-18 px-4 w-[95%] mx-auto">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-light tracking-wider text-center mb-16">FEATURED PRODUCTS</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

@@ -43,7 +43,7 @@ const ProductsPage: React.FC = () => {
   }, [selectedCategory, sortOrder, searchTerm])
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white w-[95%] mx-auto">
       {/* Header */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
@@ -65,10 +65,10 @@ const ProductsPage: React.FC = () => {
             placeholder="Search products..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="border-b px-4 py-2  w-full md:w-1/3 text-sm"
+            className="border-b px-4 py-2 w-full md:w-1/3 text-sm"
           />
 
-          <div className="flex gap-4">
+          <div className="flex gap-6">
             {/* Category Filter */}
             <select
               value={selectedCategory}
@@ -97,14 +97,14 @@ const ProductsPage: React.FC = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="pb-20 px-4">
+      <section className="pb-18 px-4 mx-auto w-[95%]">
         <div className="max-w-7xl mx-auto">
           {productsToShow.length === 0 ? (
             <p className="text-center text-gray-500 py-10">
               No products found matching your filters.
             </p>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
               {productsToShow.map((product) => (
                 <Link
                   key={product.id}

@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
     <>
       
       <footer className= "bg-gray-50 shadow-t-sm text-gray-900 p-6">
-        <div className="max-w-7xl m-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+        <div className="max-w-7xl md:pl-12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
           {/* Left side: Logo + description */}
           <section>
             <Link href={"/"}>

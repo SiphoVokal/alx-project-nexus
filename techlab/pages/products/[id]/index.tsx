@@ -44,7 +44,7 @@ const ProductPage: React.FC = () => {
         </Link>
       </div>
 
-      <section className="pb-20 px-4">
+      <section className="pb-18 px-4 w-[95%] mx-auto">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="space-y-4">
             <div className="aspect-[4/3] bg-gray-50 overflow-hidden rounded-md">
