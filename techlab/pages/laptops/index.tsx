@@ -1,34 +1,52 @@
-"use client"
+"use client";
 
-import { useState, useMemo } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { laptopProducts } from "@/data/products"
+import { useState, useMemo, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { product } from "@/interfaces";
 
 const LaptopsPage: React.FC = () => {
-  const [sortOrder, setSortOrder] = useState<"asc" | "desc" | "">("")
-  const [searchTerm, setSearchTerm] = useState<string>("")
+  const [laptops, setLaptops] = useState<product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc" | "">("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  // fetch laptops from API
+  useEffect(() => {
+    const fetchLaptops = async () => {
+      try {
+        const res = await fetch("/api/laptops");
+        const data = await res.json();
+        setLaptops(data);
+      } catch (err) {
+        console.error("Failed to fetch laptops:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchLaptops();
+  }, []);
 
   // filter + search + sort
   const productsToShow = useMemo(() => {
-    let filtered = laptopProducts
+    let filtered = laptops;
 
-    // search filter
     if (searchTerm.trim() !== "") {
       filtered = filtered.filter((p) =>
         p.name.toLowerCase().includes(searchTerm.toLowerCase())
-      )
+      );
     }
 
-    // sorting
     if (sortOrder === "asc") {
-      filtered = [...filtered].sort((a, b) => a.price - b.price)
+      filtered = [...filtered].sort((a, b) => a.price - b.price);
     } else if (sortOrder === "desc") {
-      filtered = [...filtered].sort((a, b) => b.price - a.price)
+      filtered = [...filtered].sort((a, b) => b.price - a.price);
     }
 
-    return filtered
-  }, [searchTerm, sortOrder])
+    return filtered;
+  }, [laptops, searchTerm, sortOrder]);
+
+  if (loading) return <p className="text-center py-10">Loading products...</p>;
 
   return (
     <div className="min-h-screen bg-white">
@@ -39,7 +57,8 @@ const LaptopsPage: React.FC = () => {
             LAPTOPS
           </h1>
           <p className="text-lg font-light text-gray-600 max-w-2xl mx-auto">
-            Premium MacBook collection featuring the latest Apple silicon technology
+            Premium MacBook collection featuring the latest Apple silicon
+            technology
           </p>
         </div>
       </section>
@@ -47,7 +66,6 @@ const LaptopsPage: React.FC = () => {
       {/* Filters */}
       <section className="pb-10 px-4 w-[95%] mx-auto">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Search Bar */}
           <input
             type="text"
             placeholder="Search laptops..."
@@ -56,10 +74,11 @@ const LaptopsPage: React.FC = () => {
             className="border-b px-4 py-2 w-full md:w-1/3 text-sm"
           />
 
-          {/* Price Sorting */}
           <select
             value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value as "asc" | "desc" | "")}
+            onChange={(e) =>
+              setSortOrder(e.target.value as "asc" | "desc" | "")
+            }
             className="border-b px-4 py-2 text-sm"
           >
             <option value="">Sort by Price</option>
@@ -110,7 +129,7 @@ const LaptopsPage: React.FC = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default LaptopsPage
+export default LaptopsPage;

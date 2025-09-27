@@ -1,17 +1,34 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useEffect, useState, useMemo } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { accessoryProducts } from "@/data/products"
+import { product } from "@/interfaces"; 
 
 const Accessories: React.FC = () => {
+  const [accessories, setAccessories] = useState<product[]>([]);
+  const [loading, setLoading] = useState(true);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc" | "">("")
   const [searchTerm, setSearchTerm] = useState<string>("")
 
+  useEffect(() => {
+    const fetchAccessories = async () => {
+      try {
+        const res = await fetch("/api/accessories");
+        const data = await res.json();
+        setAccessories(data);
+      } catch (err) {
+        console.error("Failed to fetch accessories:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchAccessories();
+  }, [])
+
   // filter + search + sort
   const productsToShow = useMemo(() => {
-    let filtered = accessoryProducts
+    let filtered = accessories
 
     // search filter
     if (searchTerm.trim() !== "") {
@@ -29,7 +46,9 @@ const Accessories: React.FC = () => {
     }
 
     return filtered
-  }, [searchTerm, sortOrder])
+  }, [accessories, searchTerm, sortOrder])
+
+  if (loading) return <p className="text-center py-10">Loading products...</p>;
 
   return (
     <div className="min-h-screen bg-white">

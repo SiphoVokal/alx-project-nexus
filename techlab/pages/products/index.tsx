@@ -12,7 +12,7 @@ const ProductsPage: React.FC = () => {
   const [sortOrder, setSortOrder] = useState<"asc" | "desc" | "">("");
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  // fetch mapped products from API
+  // fetch products from API
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -29,6 +29,7 @@ const ProductsPage: React.FC = () => {
     fetchProducts();
   }, []);
 
+  // filter + search + sort
   const categories = useMemo(
     () => ["All", ...new Set(products.map((p) => p.category))],
     [products]
