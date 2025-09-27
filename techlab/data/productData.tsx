@@ -214,9 +214,9 @@ export const productData: ProductData[] =[
     name: "iPhone 17",
     price: 20799,
     images: [
-      "/phone17.png?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/16.jpg?height=600&width=800",
+      "/17.jpg?height=600&width=800",
+      "/phone.jpg?height=600&width=800",
     ],
     category: "Phones",
     specs: [
@@ -293,9 +293,9 @@ export const productData: ProductData[] =[
     name: "iPhone 15 Pro Max",
     price: 23499,
     images: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/iphone15pro.jpg?height=600&width=800",
+      "/phone16pro.jpg?height=600&width=800",
+      "/pro16.jpg?height=600&width=800",
     ],
     category: "Phones",
     specs: [
@@ -312,9 +312,9 @@ export const productData: ProductData[] =[
     name: "iPhone 15 Plus",
     price: 17999,
     images: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/phone16pro.jpg?height=600&width=800",
+      "/iphone15pro.jpg?height=600&width=800",
+      "/pro16.jpg?height=600&width=800",
     ],
     category: "Phones",
     specs: [
@@ -331,9 +331,9 @@ export const productData: ProductData[] =[
     name: "iPhone 14 Pro Max",
     price: 15999,
     images: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/pro16.jpg?height=600&width=800",
+      "/phone16pro.jpg?height=600&width=800",
+      "/iphone15pro.jpg?height=600&width=800",
     ],
     category: "Phones",
     specs: [
@@ -350,9 +350,9 @@ export const productData: ProductData[] =[
     name: "iPhone 14",
     price: 12799,
     images: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/14.jpg?height=600&width=800",
+      "/phone14.jpg?height=600&width=800",
+      "/iphone14.jpg?height=600&width=800",
     ],
     category: "Phones",
     specs: [
@@ -362,6 +362,40 @@ export const productData: ProductData[] =[
       "Dual-camera system",
       "Ceramic Shield front",
       "Up to 20 hours video playback",
+    ],
+  },
+  {
+    id: 20,
+    name: "Charging Cable",
+    price: 499,
+    images: [
+      "/charge.jpg?height=600&width=800",
+      "/charger.jpg?height=600&width=800",
+      "/cable.jpg?height=600&width=800",
+    ],
+    category: "Accessories",
+    specs: [
+      "Lightning",
+      "Thunderbolt 3 USB-C",
+      "1 meter",
+      "Fast charging",
+    ],
+  },
+  {
+    id: 21,
+    name: "Power Adapter",
+    price: 599,
+    images: [
+      "/wall.jpg?height=600&width=800",
+      "/ctype.jpg?height=600&width=800",
+      "/power.jpg?height=600&width=800",
+    ],
+    category: "Accessories",
+    specs: [
+      "Thunderbolt 3 USB-C",
+      "61W",
+      "Fast charging",
+      "Use lightning or USB-C cable",
     ],
   },
 ]
