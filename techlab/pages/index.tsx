@@ -9,7 +9,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative w-full h-[500px] md:h-[600px]">
+      <section className="relative w-full h-[500px] md:h-[440px] 2xl:h-[700px]">
         {/* Mobile Hero Image */}
         <Image
           src={HeroMobile}
@@ -23,7 +23,7 @@ const HomePage: React.FC = () => {
           src={HeroDesktop}
           alt="Hero Desktop"
           fill
-          className="object-cover hidden md:block"
+          className="object-cover hidden md:block 2xl:hidden"
         />
 
         {/* Overlay */}
@@ -31,12 +31,12 @@ const HomePage: React.FC = () => {
 
         {/* Hero Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-grey-900 px-4">
-          <h1 className="text-5xl md:text-7xl font-light tracking-wider mb-50 md:mb-16">
+          <h1 className="text-5xl md:text-6xl 2xl:text-8xl font-light tracking-wider mb-50 md:mb-16 lg:mb-10">
             PREMIUM
             <br />
             TECH RESELLER
           </h1>
-          <p className="hidden md:block text-lg font-light mb-6 md:mb-10 max-w-2xl mx-auto">
+          <p className="hidden md:block text-lg 2xl:text-2xl font-light mb-6 md:mb-10 max-w-2xl mx-auto">
             Discover the latest in premium technology. A carefully curated collection of Apple devices and cutting-edge electronics.
           </p>
           <Button
